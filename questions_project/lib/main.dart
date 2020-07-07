@@ -43,7 +43,6 @@ class _QuestionAppState extends State<QuestionApp> {
         _totalPontuation += currentPontuation;
       });
     }
-    print(_totalPontuation);
   }
 
   bool get hasSelectedQuestion {
@@ -63,7 +62,7 @@ class _QuestionAppState extends State<QuestionApp> {
                 onSelection: _answer,
                 selectedQuestion: _selectedQuestion,
               )
-            : Result("Você concluiu!"),
+            : Result(_totalPontuation),
       ),
     );
   }
