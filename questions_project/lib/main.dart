@@ -45,6 +45,13 @@ class _QuestionAppState extends State<QuestionApp> {
     }
   }
 
+  void _resetQuiz() {
+    setState(() {
+      _selectedQuestion = 0;
+      _totalPontuation = 0;
+    });
+  }
+
   bool get hasSelectedQuestion {
     return _selectedQuestion < _questions.length;
   }
@@ -62,7 +69,7 @@ class _QuestionAppState extends State<QuestionApp> {
                 onSelection: _answer,
                 selectedQuestion: _selectedQuestion,
               )
-            : Result(_totalPontuation),
+            : Result(_totalPontuation, _resetQuiz),
       ),
     );
   }
